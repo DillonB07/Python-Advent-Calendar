@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='images/favicon.ico') }}"
+    />
+    <title>
+      {% block title %}Template{% endblock %} | Python Advent Calendar
+    </title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/back.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/snow.css') }}"
+    />
+    <script src='{{url_for("static", filename="js/heading.js")}}'></script>
+    {% block head %}{% endblock %}
+  </head>
+
+  <body>
+    <audio
+      id="randomSong"
+      class="hidden"
+      autoplay="True"
+      loop="True"
+      controls="True"
+    ></audio>
+    <script>
+      var songs = Array(
+        "{{ url_for('static', filename='music/Away In A Manger - Audionautix.mp3')}}",
+        "{{ url_for('static', filename='music/Carol Of The Bells - Audionautix.mp3')}}",
+        "{{ url_for('static', filename='music/Canon and Variation - Twin Musicom.mp3')}}",
+        "{{ url_for('static', filename='music/Deck the Halls - Kevin MacLeod.mp3')}}",
+        "{{ url_for('static', filename='music/Deck the Halls B - Kevin MacLeod.mp3')}}",
+        "{{ url_for('static', filename='music/Hark The Herald Angels Sing - Audionautix.mp3')}}",
+        "{{ url_for('static', filename='music/Hip Hop Christmas - Twin Musicom.mp3')}}",
+        "{{ url_for('static', filename='music/Jingle Bells - Kevin MacLeod.mp3')}}",
+        "{{ url_for('static', filename='music/Jingle Bells 7 - Kevin MacLeod.mp3')}}",
+        "{{ url_for('static', filename='music/Joy To The World - Audionautix.mp3')}}",
+        "{{ url_for('static', filename='music/Noel - Audionautix.mp3')}}",
+        "{{ url_for('static', filename='music/We Wish You a Merry Christmas - Twin Musicom.mp3')}}",
+        "{{ url_for('static', filename='music/We Wish You A Merry Xmas - Audionautix.mp3')}}"
+      );
+
+      function randomSong() {
+        var randomSong = songs[Math.floor(Math.random() * songs.length)];
+        document.getElementById("randomSong").src = randomSong;
+      }
+      randomSong();
+    </script>
+    <div class="snow-container">
+      <div class="content">
+        {% block content %}
+        <h1>Template Content</h1>
+        <div id="lipsum">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+            tortor orci, rhoncus a tellus vitae, tempor ultricies est. Cras
+            suscipit orci lectus, id condimentum orci convallis id. Donec eget
+            elit purus. Quisque porta metus a ligula tristique, quis lobortis
+            leo lobortis. Sed vitae pellentesque arcu. Vestibulum ante ipsum
+            primis in faucibus orci luctus et ultrices posuere cubilia curae;
+            Aliquam ac tristique neque. Proin posuere euismod dolor, eget
+            sodales eros molestie at. Integer ex ligula, fringilla sodales metus
+            at, vehicula fringilla elit. Nam sed luctus turpis, at vulputate
+            velit. Fusce faucibus risus purus, tincidunt rutrum sem porta non.
+            Aliquam erat volutpat. Proin eu ornare neque. Mauris vulputate metus
+            a elementum dapibus. Aenean a erat vitae felis molestie mollis.
+          </p>
+          <br />
+          <p>
+            Interdum et malesuada fames ac ante ipsum primis in faucibus.
+            Maecenas consequat id magna quis facilisis. Quisque elementum, mi a
+            dapibus bibendum, nisi ante viverra quam, et bibendum eros ligula
+            imperdiet turpis. Phasellus blandit cursus velit, nec varius urna
+            imperdiet ac. Duis suscipit sem nec faucibus faucibus. Phasellus
+            tempus feugiat ligula sed mollis. Vivamus a libero tellus. Fusce nec
+            condimentum massa, ac iaculis ante.
+          </p>
+          <br />
+          <p>
+            Donec aliquam suscipit erat. Vivamus ultrices sit amet tortor eu
+            tincidunt. Donec ullamcorper nibh nec posuere mollis. Phasellus vel
+            euismod est. Sed risus nisi, vulputate mattis pulvinar nec, egestas
+            in mauris. Phasellus elit justo, scelerisque sed ligula vitae,
+            consequat vulputate lorem. Proin vel viverra magna. Cras eu ante ut
+            leo imperdiet egestas. Vivamus vel commodo erat. Quisque venenatis
+            ac dui non eleifend. Integer laoreet mi erat, eget egestas nunc
+            elementum nec. Aenean mattis hendrerit pellentesque. Nulla ut
+            posuere nulla. Phasellus venenatis elit sed condimentum facilisis.
+            Orci varius natoque penatibus et magnis dis parturient montes,
+            nascetur ridiculus mus. Duis ac diam arcu.
+          </p>
+          <br />
+          <p>
+            Pellentesque quis vehicula nisl, sed bibendum nulla. Aliquam
+            pulvinar risus commodo sem tempor iaculis. Sed sollicitudin finibus
+            dolor, eget luctus sapien eleifend ac. Maecenas feugiat iaculis
+            scelerisque. Suspendisse potenti. Sed et ornare augue. Praesent quis
+            eleifend dui. Cras a elementum nulla, et ullamcorper mauris. In
+            aliquet turpis risus, vel ornare est fringilla vitae. Phasellus erat
+            felis, porttitor sit amet tortor sit amet, maximus finibus lorem.
+            Nullam odio nibh, ornare vel dui non, elementum ultricies tellus.
+            Aliquam malesuada suscipit congue. Sed et fringilla lacus. Proin
+            condimentum, lorem sit amet consectetur aliquam, est enim gravida
+            enim, id interdum justo ex sit amet arcu. Proin vel tellus sapien.
+            Suspendisse potenti.
+          </p>
+          <br />
+          <p>
+            Nam eleifend justo ullamcorper, tempor ex ac, rutrum magna. Nunc ut
+            porta justo. Ut nec nulla at ex cursus aliquam. Nullam ullamcorper
+            nisl massa, ac volutpat velit mattis tristique. Vivamus ut odio eu
+            ante iaculis pharetra eu non justo. Aenean facilisis mauris id sem
+            rhoncus, ac feugiat metus efficitur. Suspendisse nec arcu a neque
+            ultrices tincidunt ut ac purus. In eu vestibulum nisi. Suspendisse
+            dolor felis, pharetra sed quam nec, laoreet rhoncus erat. Integer
+            venenatis euismod maximus. Aenean pulvinar, libero quis blandit
+            rhoncus, purus velit dictum risus, vitae dictum arcu dolor eu leo.
+          </p>
+          <br />
+          <p>
+            In hac habitasse platea dictumst. Sed pretium maximus justo, vel
+            mollis ex dictum nec. Mauris sit amet sapien nibh. Sed pellentesque
+            nunc vitae sem fermentum, nec congue felis tempus. Mauris tincidunt
+            at enim ac tristique. Suspendisse tincidunt, diam id sagittis
+            mollis, felis nibh commodo nibh, ac pharetra turpis enim ut quam.
+            Integer nec justo interdum, aliquam tortor non, placerat ligula.
+            Morbi mi urna, pretium sed sapien ut, pellentesque elementum tortor.
+            Maecenas tristique metus euismod nibh accumsan placerat. Mauris
+            blandit luctus nisl, quis consectetur eros lobortis et. Vivamus ac
+            aliquet nibh.
+          </p>
+          <br />
+          <p>
+            Suspendisse facilisis leo venenatis, volutpat libero id, vehicula
+            ex. Integer nec ullamcorper libero. Pellentesque tincidunt
+            consectetur elit in bibendum. Nullam eget nulla vitae sem blandit
+            laoreet convallis quis mauris. Nunc tristique iaculis semper. Proin
+            a massa et arcu convallis rhoncus a vitae risus. Phasellus vitae mi
+            purus. Nulla velit mauris, commodo ac faucibus eu, volutpat non
+            nisl. Sed porttitor ligula elit, sed feugiat augue hendrerit vel.
+            Quisque a leo varius, iaculis odio vel, vulputate arcu. Mauris
+            ornare ex neque, quis efficitur arcu aliquet vel. Etiam fringilla
+            vitae mauris nec posuere. Integer sagittis augue nibh, sed suscipit
+            lacus egestas eget. Donec leo leo, semper vel orci eget, egestas
+            accumsan lacus. Nullam tempus, ligula at aliquet scelerisque, quam
+            ipsum ultricies lorem, nec imperdiet sapien nulla sit amet odio.
+          </p>
+          <br />
+          <p>
+            Ut gravida ante in enim fringilla tincidunt. Donec varius sapien non
+            congue egestas. Fusce diam nunc, tristique non pretium vel,
+            elementum nec sem. Mauris nec tristique mauris. Vivamus eget dolor
+            quis libero efficitur maximus. In sapien mauris, sollicitudin ut
+            mauris in, pretium commodo eros. Cras felis arcu, faucibus ac sem
+            vitae, dapibus viverra eros. Duis a dapibus urna. Sed et euismod
+            justo, vel vulputate dui. Nam vulputate metus nisi, convallis varius
+            eros mattis id. Fusce placerat orci non mauris lobortis, et gravida
+            elit bibendum. Praesent finibus vel purus ultricies ultrices. Nam
+            cursus fringilla massa, id tempus ex blandit quis.
+          </p>
+          <br />
+          <p>
+            In rhoncus ex non congue posuere. Aliquam dictum metus eu porta
+            vestibulum. Donec quam purus, luctus a augue in, mattis placerat
+            urna. Aliquam ac est ac lacus sagittis condimentum. Proin faucibus
+            malesuada leo, non finibus nisl consectetur nec. Proin efficitur
+            fermentum ex sed interdum. Quisque sit amet quam tellus. Praesent
+            pretium accumsan leo accumsan commodo.
+          </p>
+        </div>
+        {% endblock %}
+      </div>
+      <footer>
+        &copy;
+        <a href="https://dillonb07.is-a.dev" target="_blank">DillonB07</a> 2021
+        <a
+          href="https://github.com/DillonB07/Python-Advent-Calendar"
+          target="_blank"
+          >GitHub</a
+        >
+        <a
+          href="https://replit.com/@DillonB07/Python-Advent-Calendar"
+          target="_blank"
+          >Replit</a
+        ><br />Music is licensed under
+        <a href="https://creativecommons.org/licenses/by/4.0/"
+          >Creative Commons Attribution 4.0</a
+        ><br />See more about the music on the
+        <a href="/credits">Credits</a> page.
+      </footer>
+    </div>
+  </body>
+</html>

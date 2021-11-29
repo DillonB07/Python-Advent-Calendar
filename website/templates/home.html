@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block title %}Home{% endblock %} {% block content
+%}
+<h1>Python Advent Calendar</h1>
+<h2 class="christmas" onclick="newSentence()">Merry Christmas</h2>
+<div class="card">
+  <p>
+    This is an advent calendar for Python users! Each day at 6AM UTC, a new door
+    will become unlocked(If you've left the page open, you will need to
+    refresh). You will then be able to open the door and see the new day's
+    challenge.
+  </p>
+  <p>
+    This advent calendar is not meant for beginners, though feel free to follow
+    along. I've tried to make the challenges increase in difficulty, but still
+    be fun!
+  </p>
+  <p>
+    Once you've completed a challenge, you can submit it via the submit box at
+    the bottom of the challenge page.
+  </p>
+</div>
+<a class="candy" href="/calendar">View the Calendar</a>
+{% endblock %}
