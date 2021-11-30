@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint, redirect, url_for
+from flask import render_template, Blueprint, redirect, url_for, request
 import time
 from descriptions import descriptions, patient, wonder
 
@@ -38,7 +38,7 @@ def today():
     elif year > 2021 or (day > 24 and month == 12):
         return redirect(url_for('views.calendar'))
     elif year == 2021 and month == 12 and hour >= 6:
-        return render_template(f'days/{day}.html')
+        return redirect(f'day/{day}')
 
 
 @views.route('day/<request_day>')
@@ -49,13 +49,20 @@ def day(request_day: str):
     hour = int(time.strftime('%H'))
     year = int(time.strftime('%Y'))
 
+    try:
+        user_name = request.headers['X-Replit-User-Name']
+        user_id = request.headers['X-Replit-User-Id']
+    except KeyError:
+        user_name = False
+        user_id = False
+
     # REMOVE/COMMENT THIS LINE IN PRODUCTION
-    return render_template(f'days/{request_day}.html', day=request_day)
+    return render_template(f'days/{request_day}.html', day=request_day, user_name=user_name, user_id=user_id)
 
     if month != 12 and year == 2021:
         return render_template('early.html')
     elif year > 2021 or (day > 24 and month == 12) or (request_day > day and month == 12) or (request_day == day and month == 12 and hour >= 6):
-        return render_template(f'days/{request_day}.html', day=request_day)
+        return render_template(f'days/{request_day}.html', day=request_day, user_name=user_name, user_id=user_id)
 
 
 @views.route('/credits')

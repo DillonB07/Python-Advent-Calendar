@@ -1,10 +1,89 @@
 {% extends 'base.html' %} {% block title %}Day {{day}}{% endblock %} {% block
 content %}
-<h2 class="christmas">Day {{day}}</h2>
+<h2 class="christmas" onclick="playSong()">Day {{day}}</h2>
 
 <div class="card">
   <h4>{% block heading %}{% endblock %} Challenge</h4>
-  {% block day_content %}{% endblock %}
+  {% block day_content %}{% endblock %} {% if user_id %}
+  <p>Please fill in the form below and click send to contact me!</p>
+  <form method="POST" action="/contact-sent">
+    <label for="name"
+      >Username:
+      <input
+        class="center"
+        type="text"
+        name="s-name"
+        value="{{user_name}}"
+        readonly
+      />
+    </label>
+    <label for="id"
+      >User ID:
+      <input
+        class="center"
+        type="text"
+        name="s-id"
+        value="{{user_id}}"
+        readonly
+      />
+    </label>
+    <label for="email"
+      >Email(Not required but I will email out a copy of the gallery/portfolio
+      if you would like it):
+      <input
+        class="center"
+        type="email"
+        name="email"
+        placeholder="{{user_name}}@replit.com"
+      />
+    </label>
+    <label for="subject"
+      >Subject:
+      <input
+        class="center"
+        type="text"
+        name="subject"
+        value="Day {{day}} {{user_name}}'s Submission"
+        hidden
+      />
+    </label>
+    <label for="link">
+      <input
+        class="center"
+        type="link"
+        name="link"
+        placeholder="Link to your repl"
+        required
+      />
+    </label>
+    <label for="message"
+      >Want to add a message?
+      <textarea class="center" name="message"></textarea>
+    </label>
+    <label for="confirmation">
+      <input class="center" type="checkbox" name="confirmation" required />
+      If I have entered my email address, I agree to be emailed a copy of the
+      newsletter at the end of December - beginning of January. I also agree
+      that my email address will not be seen by anyone other than DillonB07 and
+      that it will be kept secure.
+    </label>
+    <label for="robot">
+      <div
+        name="robot"
+        class="g-recaptcha center"
+        data-sitekey="6Lc_JWwdAAAAAPK7ibCAw2-p-kIju_YNhuW7Xq94"
+      ></div>
+    </label>
+
+    <input class="candy" id="submit" type="submit" value="Submit" />
+  </form>
+  {% else %}
+  <h4>Please sign in to submit your program.</h4>
+  <script
+    authed="location.reload()"
+    src="{{url_for('static', filename='js/repl-auth.js')}}"
+  ></script>
+  {% endif %}
 </div>
 <a class="candy" href="/calendar">Calendar</a>
 

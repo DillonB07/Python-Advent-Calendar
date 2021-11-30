@@ -11,14 +11,14 @@
 <div class="container">
   {% for i in range(24) %} {% if i + 1 < day %}
   <a href="day/{{i + 1}}" alt="View challenge for {{i}} of December">
-    <div class="card card-link">
+    <div class="card card-link music" onclick="playSong()">
       <h3>{{i + 1}}</h3>
       <p>{{descriptions[i]}}</p>
     </div>
   </a>
   {% elif i + 1 == day %}
   <a href="day/{{day}}" alt="View challenge for {{day}} of December">
-    <div class="card card-link">
+    <div class="card card-link music" onclick="playSong()">
       <h3>{{i + 1}}</h3>
       <p>{{wonder[i]}}</p>
     </div>

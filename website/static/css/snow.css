@@ -1,6 +1,6 @@
 .snow-container {
-  background-image: url("../images/snow/snow1.png"), url("../images/snow2.png"),
-    url("../images/snow/snow3.png");
+  background-image: url("../images/snow/snow1.png"),
+    url("../images/snow/snow2.png"), url("../images/snow/snow3.png");
   animation: snow 20s linear infinite;
 }
 

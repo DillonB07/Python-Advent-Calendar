@@ -15,6 +15,7 @@ var sentences = [
   ":)",
   "Don't forget to submit your entries!",
   "Why am I even bothering to be punny?",
+  "You can press the footer to turn off the music",
 ];
 
 function newSentence() {

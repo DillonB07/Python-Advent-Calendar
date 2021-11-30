@@ -24,40 +24,12 @@
       href="{{ url_for('static', filename='css/snow.css') }}"
     />
     <script src='{{url_for("static", filename="js/heading.js")}}'></script>
+    <script src='{{url_for("static", filename="js/music.js")}}'></script>
     {% block head %}{% endblock %}
   </head>
 
   <body>
-    <audio
-      id="randomSong"
-      class="hidden"
-      autoplay="True"
-      loop="True"
-      controls="True"
-    ></audio>
-    <script>
-      var songs = Array(
-        "{{ url_for('static', filename='music/Away In A Manger - Audionautix.mp3')}}",
-        "{{ url_for('static', filename='music/Carol Of The Bells - Audionautix.mp3')}}",
-        "{{ url_for('static', filename='music/Canon and Variation - Twin Musicom.mp3')}}",
-        "{{ url_for('static', filename='music/Deck the Halls - Kevin MacLeod.mp3')}}",
-        "{{ url_for('static', filename='music/Deck the Halls B - Kevin MacLeod.mp3')}}",
-        "{{ url_for('static', filename='music/Hark The Herald Angels Sing - Audionautix.mp3')}}",
-        "{{ url_for('static', filename='music/Hip Hop Christmas - Twin Musicom.mp3')}}",
-        "{{ url_for('static', filename='music/Jingle Bells - Kevin MacLeod.mp3')}}",
-        "{{ url_for('static', filename='music/Jingle Bells 7 - Kevin MacLeod.mp3')}}",
-        "{{ url_for('static', filename='music/Joy To The World - Audionautix.mp3')}}",
-        "{{ url_for('static', filename='music/Noel - Audionautix.mp3')}}",
-        "{{ url_for('static', filename='music/We Wish You a Merry Christmas - Twin Musicom.mp3')}}",
-        "{{ url_for('static', filename='music/We Wish You A Merry Xmas - Audionautix.mp3')}}"
-      );
-
-      function randomSong() {
-        var randomSong = songs[Math.floor(Math.random() * songs.length)];
-        document.getElementById("randomSong").src = randomSong;
-      }
-      randomSong();
-    </script>
+    <audio id="player"></audio>
     <div class="snow-container">
       <div class="content">
         {% block content %}
@@ -182,7 +154,7 @@
         </div>
         {% endblock %}
       </div>
-      <footer>
+      <footer onclick="pauseSong()">
         &copy;
         <a href="https://dillonb07.is-a.dev" target="_blank">DillonB07</a> 2021
         <a
@@ -194,8 +166,8 @@
           href="https://replit.com/@DillonB07/Python-Advent-Calendar"
           target="_blank"
           >Replit</a
-        ><br />I didn't create everything here!<br />See more about the copyright and  help on the
-        <a href="/credits">Credits</a> page.
+        ><br />I didn't create everything here!<br />See more about the
+        copyright and help on the <a href="/credits">Credits</a> page.
       </footer>
     </div>
   </body>
