@@ -1,22 +1,13 @@
 from flask import render_template, Blueprint, redirect, url_for
-from datetime import datetime
 import time
 from descriptions import descriptions, patient, wonder
-import random
 
 views = Blueprint('views', __name__)
-
-music_files = ['Away In A Manger - Audionautix.mp3', 'Carol Of The Bells - Audionautix.mp3', 'Canon and Variation - Twin Musicom.mp3',
-               'Deck the Halls - Kevin MacLeod.mp3', 'Deck the Halls B - Kevin MacLeod.mp3', 'Hark The Herald Angels Sing - Audionautix.mp3', 'Hip Hop Christmas - Twin Musicom.mp3', 'Jingle Bells - Kevin MacLeod.mp3', 'Jingle Bells 7 - Kevin MacLeod.mp3', 'Joy To The World - Audionautix.mp3', 'Noel - Audionautix.mp3', 'We Wish You a Merry Christmas - Twin Musicom.mp3', 'We Wish You A Merry Xmas - Audionautix.mp3']
-
-
-def random_music():
-    return random.choice(music_files)
 
 
 @views.route('/')
 def home():
-    return render_template('home.html', music=random_music())
+    return render_template('home.html')
 
 
 @views.route('/calendar')
