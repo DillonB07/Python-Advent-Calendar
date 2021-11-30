@@ -1,17 +1,18 @@
-{% extends 'base.html' %} {% block title %}Day {{day}}{% endblock %} {% block content %}
+{% extends 'base.html' %} {% block title %}Day {{day}}{% endblock %} {% block
+content %}
 <h2 class="christmas" onclick="playSong()">Day {{day}}</h2>
 
 <div class="card">
-	<h4>{% block heading %}{% endblock %} Challenge</h4>
-	{% block day_content %}{% endblock %} {% if user_id %}
-	<p>Please fill in the form below and click send to contact me!</p>
-	<form method="POST" action="/contact-sent">
-		<label for="name"
+  <h4>{% block heading %}{% endblock %} Challenge</h4>
+  {% block day_content %}{% endblock %} {% if user_id %}
+  <p>Please fill in the form below and click send to contact me!</p>
+  <form method="POST" action="/submit">
+    <label for="name"
       >Username:
       <input
         class="center"
         type="text"
-        name="s-name"
+        name="name"
         value="{{user_name}}"
         readonly
       />
@@ -21,10 +22,14 @@
       <input
         class="center"
         type="text"
-        name="s-id"
+        name="id"
         value="{{user_id}}"
         readonly
       />
+    </label>
+    <label for="day"
+      >Day:
+      <input type="number" name="day" value="{{day}}" readonly />
     </label>
     <label for="email"
       >Email(Gallery of submissions):
@@ -35,8 +40,7 @@
         placeholder="{{user_name}}@gmail.com"
       />
     </label>
-    <label for="subject"
-      >
+    <label for="subject">
       <input
         class="center"
         type="text"
@@ -45,7 +49,8 @@
         hidden
       />
     </label>
-    <label for="link">Submission(repl): 
+    <label for="link"
+      >Submission(repl):
       <input
         class="center"
         type="link"
@@ -65,8 +70,12 @@
       that my email address will not be seen by anyone other than DillonB07 and
       that it will be kept secure.
     </label>
-    <label for='gallery-confirmation'>
-        <input type='checkbox' name='gallery-confirmation'>By checking this box, I agree to my project being shared in the gallery when December is over. I also agree to it being used in the newsletter that will be sent out to some submitters or shared on a GitHub repository.
+    <label for="gallery-confirmation">
+      <input type="checkbox" name="gallery-confirmation" />By checking this box,
+      I agree to my project being shared in the gallery when December is over. I
+      also agree to it being used in the newsletter that will be sent out to
+      some submitters or shared on a GitHub repository.</label
+    >
     <label for="robot">
       <div
         name="robot"

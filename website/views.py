@@ -1,6 +1,9 @@
 from flask import render_template, Blueprint, redirect, url_for, request
 import time
 from descriptions import descriptions, patient, wonder
+from dill_tils.flask import is_human
+from dill_tils.email import Email
+import os
 
 views = Blueprint('views', __name__)
 
@@ -53,8 +56,8 @@ def day(request_day: str):
         user_name = request.headers['X-Replit-User-Name']
         user_id = request.headers['X-Replit-User-Id']
     except KeyError:
-        user_name = False
-        user_id = False
+        user_name = 'DillonB07'
+        user_id = '5431535'
 
     # REMOVE/COMMENT THIS LINE IN PRODUCTION
     return render_template(f'days/{request_day}.html', day=request_day, user_name=user_name, user_id=user_id)
@@ -63,6 +66,57 @@ def day(request_day: str):
         return render_template('early.html')
     elif year > 2021 or (day > 24 and month == 12) or (request_day > day and month == 12) or (request_day == day and month == 12 and hour >= 6):
         return render_template(f'days/{request_day}.html', day=request_day, user_name=user_name, user_id=user_id)
+
+
+@views.route('/submit', methods=['GET', 'POST'])
+def contact_logic():
+    if request.method == 'POST':
+        name = request.form['name']
+        id = request.form['id']
+        try:
+            email = request.form['email']
+        except KeyError:
+            email = 'withheld'
+        subject = request.form['subject']
+        link = request.form['link']
+        message = request.form['message']
+        day = request.form['day']
+        email_confirmation = request.form['email-confirmation']
+        gallery_confirmation = request.form['gallery-confirmation']
+        captcha_response = request.form['g-recaptcha-response']
+
+        message = f"""
+        New Advent calendar form submission!
+        {name} has submitted an entry for day {day}.
+        Their email is {email} and their id is {id}.
+        
+        Submission link: {link}
+        
+        Email confirmation: {email_confirmation}
+        Gallery Confirmation: {gallery_confirmation}
+        Captcha Response: {captcha_response}
+        
+        Additional information:
+        {message}
+        """
+
+        if not is_human(captcha_response):
+            print('Bot attempt!')
+            return redirect(url_for('views.contact'))
+
+        recipient = os.environ['RECIPIENT']
+        sender = os.environ['SENDER']
+        password = os.environ['PASSWORD']
+        e = Email(recipient, sender, password)
+        sent = e.send_email(subject)
+
+        if sent:
+            return render_template('success.html')
+        else:
+            return render_template('failure.html')
+
+    else:
+        return redirect(f'day/{day}')
 
 
 @views.route('/credits')
