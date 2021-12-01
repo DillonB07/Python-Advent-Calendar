@@ -17,7 +17,7 @@ def home():
 def calendar():
     day = int(time.strftime('%d'))
     month = int(time.strftime('%m'))
-    day = 1  # REMOVE/COMMENT THIS LINE IN PRODUCTION
+    # day = 1  # REMOVE/COMMENT THIS LINE IN PRODUCTION
     if day in [1, 21]:
         ending = 'st'
     elif day in [2, 22]:
@@ -60,12 +60,14 @@ def day(request_day: str):
         user_id = '5431535'
 
     # REMOVE/COMMENT THIS LINE IN PRODUCTION
-    return render_template(f'days/{request_day}.html', day=request_day, user_name=user_name, user_id=user_id)
+    # return render_template(f'days/{request_day}.html', day=request_day, user_name=user_name, user_id=user_id)
 
     if month != 12 and year == 2021:
         return render_template('early.html')
-    elif year > 2021 or (day > 24 and month == 12) or (request_day > day and month == 12) or (request_day == day and month == 12 and hour >= 6):
+    elif year > 2021 or (day > 24 and month == 12) or (request_day < day and month == 12) or (request_day == day and month == 12 and hour >= 6):
         return render_template(f'days/{request_day}.html', day=request_day, user_name=user_name, user_id=user_id)
+    else:
+        return render_template('early.html')
 
 
 @views.route('/submit', methods=['GET', 'POST'])
@@ -94,13 +96,12 @@ def contact_logic():
         
         Email confirmation: {email_confirmation}
         Gallery Confirmation: {gallery_confirmation}
-        Captcha Response: {captcha_response}
         
         Additional information:
         {message}
         """
 
-        if not is_human(captcha_response):
+        if not is_human(captcha_response, os.environ['CAPTCHA_SECRET_KEY']):
             print('Bot attempt!')
             return redirect(url_for('views.contact'))
 
@@ -108,12 +109,12 @@ def contact_logic():
         sender = os.environ['SENDER']
         password = os.environ['PASSWORD']
         e = Email(recipient, sender, password)
-        sent = e.send_email(subject)
+        sent = e.send_email(subject, message)
 
         if sent:
-            return render_template('success.html')
+            return render_template('success.html', user_name=name)
         else:
-            return render_template('failure.html')
+            return render_template('failure.html', user_name=name)
 
     else:
         return redirect(f'day/{day}')

@@ -9,14 +9,15 @@
 <div id="box"><p>It is the {{day}}{{ending}} of December!</p></div>
 {% endif %}
 <div class="container">
-  {% for i in range(24) %} {% if i + 1 < day %}
+  {% for i in range(24) %}
+  {% if i + 1 < day and month == 12 %}
   <a href="day/{{i + 1}}" alt="View challenge for {{i}} of December">
     <div class="card card-link music" onclick="playSong()">
       <h3>{{i + 1}}</h3>
       <p>{{descriptions[i]}}</p>
     </div>
   </a>
-  {% elif i + 1 == day %}
+  {% elif i + 1 == day and month == 12 %}
   <a href="day/{{day}}" alt="View challenge for {{day}} of December">
     <div class="card card-link music" onclick="playSong()">
       <h3>{{i + 1}}</h3>

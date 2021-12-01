@@ -7,7 +7,7 @@ var sentences = [
   "I should be doing something else..",
   "This is fun!",
   "I'm terrible at puns. It's really quit pythetic",
-  "I certainly hope you havn't spent more than a few minutes on this!",
+  "I certainly hope you haven't spent more than a few minutes on this!",
   "Tis the season to be coding",
   "Have a nice cup of Java",
   "Are you still on this?",
