@@ -1,9 +1,16 @@
-{% extends 'base.html' %} {% block title %}Failure{% endblock %} {% block content %}
+{% extends 'base.html' %} {% block title %}Failure{% endblock %} {% block
+content %}
 <h1>Error</h1>
-<div class='card'>
-	<p>Sorry, {{user_name}} but something went wrong with sending the email. Please try again. If it still doesn't work, visit this repl and write a comment saying that the submission form isn't working.
-<br/><a href='https://replit.com/@DillonB07/Advent-Calendar' target='_blank'>https://replit.com/@DillonB07/Advent-Calendar</a></p>
-	
+<div class="card" onclick="playSong()">
+  <p>
+    Sorry, {{user_name}} but something went wrong with sending the email. Please
+    try again. If it still doesn't work, visit this repl and write a comment
+    saying that the submission form isn't working. <br /><a
+      href="https://replit.com/@DillonB07/Advent-Calendar"
+      target="_blank"
+      >https://replit.com/@DillonB07/Advent-Calendar</a
+    >
+  </p>
 </div>
-<a class='candy' href='/'>Go Home</a>
+<a class="candy" href="/">Go Home</a>
 {% endblock %}

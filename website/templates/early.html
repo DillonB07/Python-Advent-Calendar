@@ -1,10 +1,12 @@
-{% extends 'base.html' %}
-{% block title %}Early{% endblock %}
-{% block content %}
+{% extends 'base.html' %} {% block title %}Early{% endblock %} {% block content
+%}
 <h1>Hang on!</h1>
-<div class='card'>
-    <h4>Wow, what are you doing?</h4>
-    <p>I know you can't wait to see what's here, but it's not time yet! Be patient and wait a little bit longer!</p>
+<div class="card" onclick="playSong()">
+  <h4>Wow, what are you doing?</h4>
+  <p>
+    I know you can't wait to see what's here, but it's not time yet! Be patient
+    and wait a little bit longer!
+  </p>
 </div>
-<a href='/calendar' class='candy' >Calendar</a>
+<a href="/calendar" class="candy">Calendar</a>
 {% endblock %}

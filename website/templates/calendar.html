@@ -4,13 +4,12 @@
   href="{{ url_for('static', filename='css/calendar.css') }}"
 />
 {% endblock %}{% block content %}
-<h2 class="christmas" onclick="newSentence()">Merry Christmas</h2>
+<h2 class="christmas" onclick="newSentence(); playSong()">Merry Christmas</h2>
 {% if month == 12 %}
 <div id="box"><p>It is the {{day}}{{ending}} of December!</p></div>
 {% endif %}
 <div class="container">
-  {% for i in range(24) %}
-  {% if i + 1 < day and month == 12 %}
+  {% for i in range(24) %} {% if i + 1 < day and month == 12 %}
   <a href="day/{{i + 1}}" alt="View challenge for {{i}} of December">
     <div class="card card-link music" onclick="playSong()">
       <h3>{{i + 1}}</h3>

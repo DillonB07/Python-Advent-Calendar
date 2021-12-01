@@ -1,0 +1,44 @@
+{% extends 'days/template.html' %} {% block heading %}Candy Machine{% endblock
+%} {% block day_content %}
+<p>
+  Welcome to the second door! It's now Thursday 2nd December, and so it is time
+  for your second Python challenge in this advent calendar. Your task is below:
+</p>
+<p>
+  Santa and his elves want to communicate with each other without humans
+  understanding. Create a program that will translate and decode messages into
+  Morse Code.<br />
+  Your program <strong>should</strong> do the following:
+</p>
+<ul>
+  <li>
+    <p>
+      Allow the user to enter a string which will be encoded into Morse code
+      using '.' and '-' notation. Spaces should be replaced by the piper
+      character('|').
+    </p>
+  </li>
+  <li>
+    <p>
+      The program should then translate inputted Morse code back into English.
+    </p>
+  </li>
+  <li>
+    <p>
+      The program should have a menu to choose between encoding and decoding.
+    </p>
+  </li>
+</ul>
+<p>However, you <strong>could</strong> add the following:</p>
+<ul>
+  <li><p>Change the program to be more Christmas themed.</p></li>
+  <li><p>Create your own language to translate into.</p></li>
+  <li>
+    <p>
+      Be unique! Instead of just using an unstyled Terminal window, make your
+      program as a website, app or style the Terminal using the curses module.
+      Or, just add colour, animation and clearing the screen!
+    </p>
+  </li>
+</ul>
+{% endblock %}

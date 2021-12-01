@@ -56,8 +56,8 @@ def day(request_day: str):
         user_name = request.headers['X-Replit-User-Name']
         user_id = request.headers['X-Replit-User-Id']
     except KeyError:
-        user_name = 'DillonB07'
-        user_id = '5431535'
+        user_name = None
+        user_id = None
 
     # REMOVE/COMMENT THIS LINE IN PRODUCTION
     # return render_template(f'days/{request_day}.html', day=request_day, user_name=user_name, user_id=user_id)
