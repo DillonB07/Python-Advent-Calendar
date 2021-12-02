@@ -1,0 +1,41 @@
+{% extends 'days/template.html' %} {% block heading %}Events Calendar{% endblock
+%} {% block day_content %}
+<p>
+  Welcome to the third door! It's now Friday 3rd December, and so it is time
+  for your third Python challenge in this advent calendar. Your task is below:
+</p>
+<p>
+  Santa wants to give people a calendar so that they can be more time efficient. It is your job to make this.<br />
+  Your program <strong>should</strong> do the following:
+</p>
+<ul>
+  <li>
+    <p>
+      Have a menu to selecte between adding, viewing and deleting events.
+    </p>
+  </li>
+  <li>
+    <p>
+      Allow the user to delete and add events.
+    </p>
+  </li>
+  <li>
+    <p>
+      Warn the user if events overlap.
+    </p>
+  </li>
+</ul>
+<p>However, you <strong>could</strong> add the following:</p>
+<ul>
+  <li><p>Write the events to a file.</p></li>
+  <li><p>Make sure events aren't hardcoded</p></li>
+  <li><p>Allow the user to modify events</p></li>
+  <li>
+    <p>
+      Be unique! Instead of just using an unstyled Terminal window, make your
+      program as a website, app or style the Terminal using the curses module.
+      Or, just add colour, animation and clearing the screen!
+    </p>
+  </li>
+</ul>
+{% endblock %}
