@@ -19,7 +19,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
 name = "dill-tils"
-version = "1.0.5"
+version = "1.0.7"
 description = "A collection of DillonB07s utilities"
 category = "main"
 optional = false
@@ -98,7 +98,7 @@ watchdog = ["watchdog"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "d46e2a10b4f6155bc4a04057b2d28dacbc26c855638d215d8c3366a99e425741"
+content-hash = "df2388aebaa4b415e3e30ce9f74b2a0abdc9b3d25ca2f19c35b38192a06e5c83"
 
 [metadata.files]
 click = [
@@ -110,8 +110,8 @@ colorama = [
     {file = "colorama-0.4.4.tar.gz", hash = "sha256:5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"},
 ]
 dill-tils = [
-    {file = "dill_tils-1.0.5-py3-none-any.whl", hash = "sha256:0ff9b415410f88bc449db58d4116b0f0c82e709e5c31fb55500d12848428aac2"},
-    {file = "dill_tils-1.0.5.tar.gz", hash = "sha256:706fa08220118eab5b09f414d088520283dbd07899f0b8c95262fc8d13dabfb5"},
+    {file = "dill_tils-1.0.7-py3-none-any.whl", hash = "sha256:43f4ff6d156000e17287ab40c64c24b9faece65c7ed467c9dc2c1ac95114631b"},
+    {file = "dill_tils-1.0.7.tar.gz", hash = "sha256:aaf434c04206af02f48af8097c0e232b919be9fdb6e6733dd7c963014a9ee0f2"},
 ]
 flask = [
     {file = "Flask-2.0.2-py3-none-any.whl", hash = "sha256:cb90f62f1d8e4dc4621f52106613488b5ba826b2e1e10a33eac92f723093ab6a"},

@@ -91,6 +91,10 @@ code {
   color: rgb(205, 133, 0);
 }
 
+pre {
+    text-align: left;
+}
+
 blockquote {
   /* width: 275px; */
   font-size: 130%;

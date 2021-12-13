@@ -1,0 +1,45 @@
+{% extends 'days/template.html' %} {% block heading %}Secret messages{% endblock %} {% block day_content %}
+<p>
+	Welcome to the eleventh door! It's now Saturday 11th December, and so it is time for your eleventh Python challenge in this
+	advent calendar. Your task is below:
+</p>
+<p>
+	Although you've now created two encryption methods for Santa, it's time to make one for the elves! They don't want Santa
+	hearing them! Create a program that uses one of the following ciphers to encrypt messages - <a href='https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher'
+	 target='_blank'>Vigénere</a>, <a href='https://en.wikipedia.org/wiki/Vernam_cipher' target='_blank'>Veman</a>, <a href='https://en.wikipedia.org/wiki/Caesar_cipher'
+	 target='_blank'>Ceasar</a><br />
+  Your program <strong>should</strong> do the following:
+</p>
+<ul>
+  <li>
+    <p>
+        Use one of the above ciphers to decode user inputted messages
+    </p>
+  </li>
+  <li>
+      <p>
+          Ignore numbers, symbols and whitespaces
+      </p>
+  </li>
+</ul>
+<p>However, you <strong>could</strong> add the following:</p>
+<ul>
+  <li><p>Code all of the encryption methods and let the user choose which one to use</p></li>
+  <li>
+      <p>
+          Add a way to decrypt messages
+      </p>
+  </li>
+  <li>
+      <p>Email the encrypted message to a friend(user-inputted address)
+      </p>
+  </li>
+  <li>
+    <p>
+      Be unique! Instead of just using an unstyled Terminal window, make your
+      program as a website, app or style the Terminal using the curses module.
+      Or, just add colour, animation and clearing the screen!
+    </p>
+  </li>
+</ul>
+{% endblock %}

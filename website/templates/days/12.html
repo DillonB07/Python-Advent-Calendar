@@ -1,0 +1,45 @@
+{% extends 'days/template.html' %} {% block heading %}Naughty or Nice{% endblock %} {% block day_content %}
+<p>
+	Welcome to the twelth door! It's now Sunday 12th December, and so it is time for your twelth Python challenge in this
+	advent calendar. Your task is below:
+</p>
+<p>
+	Santa has a lot of people to deliver presents to. However, he has no way of knowing whether they deserve a present! Create a program to do this for him. IT should take in a name at a time, and ask questions about how they've acted over the last year. Then, based on the answers, decide if the child was naughty or nice. This should then be put into a list or dictionary like so: <pre>
+<code class='python'>
+naughty: int = 0
+nice: int = 1
+result = {
+    'Henry': naughty,
+    'Dillon': nice
+} # Don't hardcode the list! This is just an example of how it should be stored!
+</code></pre><br />
+  Your program <strong>should</strong> do the following:
+</p>
+<ul>
+  <li>
+    <p>
+        Tell Santa whether people are naughty or nice
+    </p>
+  </li>
+  <li>
+      <p>
+          <strong>Not</strong> decide what gifts to give them
+      </p>
+  </li>
+  <li>
+      <p>Store the results in a list or dictionary/JSON object.</p>
+  </li>
+</ul>
+<p>However, you <strong>could</strong> add the following:</p>
+<ul>
+  <li><p>Allow the user to view and modify the list or dictionary/JSON object</p></li>
+  <li><p>Allow bulk deciding of users.</p></li>
+  <li>
+    <p>
+      Be unique! Instead of just using an unstyled Terminal window, make your
+      program as a website, app or style the Terminal using the curses module.
+      Or, just add colour, animation and clearing the screen!
+    </p>
+  </li>
+</ul>
+{% endblock %}

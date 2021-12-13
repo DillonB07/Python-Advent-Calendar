@@ -1,0 +1,40 @@
+{% extends 'days/template.html' %} {% block heading %}Present{% endblock %} {% block day_content %}
+<p>
+	Welcome to the thirteenth door! It's now Monday 13th December, and so it is time for your thirteenth Python challenge in this
+	advent calendar. Your task is below:
+</p>
+<p>
+	Santa has a lot of people to deliver presents to. Yesterday, you gave him a way of knowing whether they deserve a present! Create a program to work out what presents they should get. This could integrate into yesterday's solution. It should take in a name at a time and whether they were naughty or nice. This should then be put into a list or dictionary like so: <pre>
+<code class='python'>
+naughty: int = 0
+nice: int = 1
+result = {
+    'Henry': naughty,
+    'Dillon': nice
+} # Don't hardcode the list! This is just an example of how it should be stored!
+</code></pre>Then, it should decide what present that the kid should had based off of the answers to the questions asked yesterday.<br />
+  Your program <strong>should</strong> do the following:
+</p>
+<ul>
+  <li>
+    <p>
+        Tell Santa what presents the kids deserve
+    </p>
+  </li>
+  <li>
+      <p>Store the results in a list or dictionary/JSON object.</p>
+  </li>
+</ul>
+<p>However, you <strong>could</strong> add the following:</p>
+<ul>
+  <li><p>Allow the user(Santa) to view and modify the list or dictionary/JSON object</p></li>
+  <li><p>Allow bulk deciding of users.</p></li>
+  <li>
+    <p>
+      Be unique! Instead of just using an unstyled Terminal window, make your
+      program as a website, app or style the Terminal using the curses module.
+      Or, just add colour, animation and clearing the screen!
+    </p>
+  </li>
+</ul>
+{% endblock %}

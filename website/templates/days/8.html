@@ -1,0 +1,35 @@
+{% extends 'days/template.html' %} {% block heading %}Semaphore{% endblock %} {% block day_content %}
+<p>
+	Welcome to the eighth door! It's now Wednesday 8th December, and so it is time for your eighth Python challenge in this advent
+	calendar. Your task is below:
+</p>
+<p>
+	Semaphore - a system of sending messages by holding the arms or two flags or poles in certain positions according to an alphabetic
+	code - <a href='https://en.wikipedia.org/wiki/Flag_semaphore' target="_blank">Wikipedia</a>
+    The morse code translator you made on Day 2 has been cracked. You need to make a new one! Take the user's input and make an animation of it in semaphore. Use the above Wikipedia entry to see what different characters are in flag semaphoric language.<br/>To complete this challenge, you could use Tkinter or Pygame. You could make a Flask app and have different images pass through to a Jinja template. If you use JavaScript, you could make the animations in CSS and modify the HTML classes or ids. There are so many ways to make this. Be creative and have fun!
+<br />
+  Your program <strong>should</strong> do the following:
+</p>
+<ul>
+  <li>
+    <p>
+      Translate user inputted text into semaphoric language.
+    </p>
+  </li>
+  <li>
+      <p>That's it! Simple!</p>
+  </li>
+</ul>
+<p>However, you <strong>could</strong> add the following:</p>
+<ul>
+  <li><p>
+      Tell the user how to say/show the message.</p></li>
+  <li>
+    <p>
+      Be unique! Instead of just using an unstyled Terminal window, make your
+      program as a website, app or style the Terminal using the curses module.
+      Or, just add colour, animation and clearing the screen!
+    </p>
+  </li>
+</ul>
+{% endblock %}

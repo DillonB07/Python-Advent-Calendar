@@ -1,0 +1,47 @@
+{% extends 'days/template.html' %} {% block heading %}GIFY{% endblock %} {% block day_content %}
+<p>
+	Welcome to the seventh door! It's now Tuesday 7th December, and so it is time for your seventh Python challenge in this advent
+	calendar. Your task is below:
+</p>
+<p>
+	GIFs. Kids like them. Teens like them. Adults like them. Everyone likes them. Who knows how to make them? Santa is considering
+	giving out flash drives full of GIFs for presents, but he doesn't know how to make them. Your task is to create an easy-to-use
+	tool that converts small video files into GIFs. Have a look at this to get started! - <a href='https://zulko.github.io/blog/2014/01/23/making-animated-gifs-from-video-files-with-python'
+	 target='_blank'>A Python guide to converting videos to GIFs.</a>
+	<br/>This project is a little different, because it is quite tricky to do in a basic project. You could use an API to do
+		this and return the download link to the user. Or, you could use another language like JavaScript which might be easier
+		for this project.
+		<br />
+  Your program <strong>should</strong> do the following:
+</p>
+<ul>
+  <li>
+    <p>
+      Convert popular video formats(.mov, .mp4) into .gifs
+    </p>
+  </li>
+  <li>
+    <p>
+      Be simple to use
+    </p>
+  </li>
+  <li>
+      <p>Allow the user to download the file if possible.</p>
+  </li>
+</ul>
+<p>However, you <strong>could</strong> add the following:</p>
+<ul>
+  <li><p>Allow the user to crop the video</p></li>
+  <li><p>Allow the user to freeze a part of the video</p></li>
+  <li><p>Make your GIF time symmetrical</p></li>
+  <li><p>Allow the user to add text to the video</p></li>
+  <li><p>Allow the user to remove the background of the video</p></li>
+  <li>
+    <p>
+      Be unique! Instead of just using an unstyled Terminal window, make your
+      program as a website, app or style the Terminal using the curses module.
+      Or, just add colour, animation and clearing the screen!
+    </p>
+  </li>
+</ul>
+{% endblock %}

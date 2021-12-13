@@ -75,16 +75,21 @@ def contact_logic():
     if request.method == 'POST':
         name = request.form['name']
         id = request.form['id']
-        try:
-            email = request.form['email']
-        except KeyError:
+        email = request.form['email']
+        if email == '':
             email = 'withheld'
         subject = request.form['subject']
         link = request.form['link']
         message = request.form['message']
         day = request.form['day']
-        email_confirmation = request.form['email-confirmation']
-        gallery_confirmation = request.form['gallery-confirmation']
+        try:
+            email_confirmation = request.form['email-confirmation']
+        except:
+            email_confirmation = 'No'
+        try:
+            gallery_confirmation = request.form['gallery-confirmation']
+        except:
+            gallery_confirmation = 'No'
         captcha_response = request.form['g-recaptcha-response']
 
         message = f"""
@@ -115,9 +120,11 @@ def contact_logic():
             return render_template('success.html', user_name=name)
         else:
             return render_template('failure.html', user_name=name)
-
     else:
         return redirect(f'day/{day}')
+
+    print('error')
+    return 'Error!'
 
 
 @views.route('/credits')
