@@ -1,5 +1,7 @@
 # Python Advent Calendar
 
+> Get started - https://advent-calendar.dillonb07.repl.co
+
 As I write this, December is rapidly approaching(Oh, it's actually tomorrow!). How many of you are thinking about buying, or have already bought, an advent calendar? Probably quite a few. This is an advent calendar for Python users!
 
 Each day will be unlocked at 6AM UTC/GMT via a Python backend. Due to this being automatic, the GitHub repository will remain private until after Christmas.
