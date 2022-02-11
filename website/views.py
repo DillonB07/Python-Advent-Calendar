@@ -18,11 +18,11 @@ def calendar():
     day = int(time.strftime('%d'))
     month = int(time.strftime('%m'))
     # day = 1  # REMOVE/COMMENT THIS LINE IN PRODUCTION
-    if day in [1, 21]:
+    if day in {1, 21}:
         ending = 'st'
-    elif day in [2, 22]:
+    elif day in {2, 22}:
         ending = 'nd'
-    elif day in [3, 23]:
+    elif day in {3, 23}:
         ending = 'rd'
     else:
         ending = 'th'
@@ -40,7 +40,7 @@ def today():
         return render_template('early.html')
     elif year > 2021 or (day > 24 and month == 12):
         return redirect(url_for('views.calendar'))
-    elif year == 2021 and month == 12 and hour >= 6:
+    elif year == 2021 and hour >= 6:
         return redirect(f'day/{day}')
 
 
@@ -72,27 +72,29 @@ def day(request_day: str):
 
 @views.route('/submit', methods=['GET', 'POST'])
 def contact_logic():
-    if request.method == 'POST':
-        name = request.form['name']
-        id = request.form['id']
-        email = request.form['email']
-        if email == '':
-            email = 'withheld'
-        subject = request.form['subject']
-        link = request.form['link']
-        message = request.form['message']
-        day = request.form['day']
-        try:
-            email_confirmation = request.form['email-confirmation']
-        except:
-            email_confirmation = 'No'
-        try:
-            gallery_confirmation = request.form['gallery-confirmation']
-        except:
-            gallery_confirmation = 'No'
-        captcha_response = request.form['g-recaptcha-response']
+    if request.method != 'POST':
+        return redirect(f'day/{day}')
 
-        message = f"""
+    name = request.form['name']
+    id = request.form['id']
+    email = request.form['email']
+    if email == '':
+        email = 'withheld'
+    subject = request.form['subject']
+    link = request.form['link']
+    message = request.form['message']
+    day = request.form['day']
+    try:
+        email_confirmation = request.form['email-confirmation']
+    except:
+        email_confirmation = 'No'
+    try:
+        gallery_confirmation = request.form['gallery-confirmation']
+    except:
+        gallery_confirmation = 'No'
+    captcha_response = request.form['g-recaptcha-response']
+
+    message = f"""
         New Advent calendar form submission!
         {name} has submitted an entry for day {day}.
         Their email is {email} and their id is {id}.
@@ -106,25 +108,19 @@ def contact_logic():
         {message}
         """
 
-        if not is_human(captcha_response, os.environ['CAPTCHA_SECRET_KEY']):
-            print('Bot attempt!')
-            return redirect(url_for('views.contact'))
+    if not is_human(captcha_response, os.environ['CAPTCHA_SECRET_KEY']):
+        print('Bot attempt!')
+        return redirect(url_for('views.contact'))
 
-        recipient = os.environ['RECIPIENT']
-        sender = os.environ['SENDER']
-        password = os.environ['PASSWORD']
-        e = Email(recipient, sender, password)
-        sent = e.send_email(subject, message)
-
-        if sent:
-            return render_template('success.html', user_name=name)
-        else:
-            return render_template('failure.html', user_name=name)
-    else:
-        return redirect(f'day/{day}')
-
-    print('error')
-    return 'Error!'
+    recipient = os.environ['RECIPIENT']
+    sender = os.environ['SENDER']
+    password = os.environ['PASSWORD']
+    e = Email(recipient, sender, password)
+    return (
+        render_template('success.html', user_name=name)
+        if (sent := e.send_email(subject, message))
+        else render_template('failure.html', user_name=name)
+    )
 
 
 @views.route('/credits')
